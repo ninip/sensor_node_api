@@ -1,6 +1,6 @@
 from src.database import db
 from src.models.sensor import Sensor
-from src.services.base_service import BaseService
+from src.services.base_service import BaseService, session_scope
 
 
 class SensorService(BaseService):
