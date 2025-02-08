@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "5000:8000" 
+    volumes:
+      - .:/app
+      - sqlite_data:/app/instance  
+    environment:
+      - FLASK_APP=src.app:application
+      - FLASK_ENV=development
+      - PYTHONPATH=/app
+      - SQLALCHEMY_DATABASE_URI=sqlite:///instance/sensor_node.db
+    command: python -m flask run --host=0.0.0.0 --port=8000
+
+  test:
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_APP=src.app:application
+      - FLASK_ENV=testing
+      - PYTHONPATH=/app
+      - "SQLALCHEMY_DATABASE_URI=sqlite:///:memory:"
+    command: python -m unittest discover tests -v
+
+
+volumes:
+  sqlite_data:  
