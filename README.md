@@ -1,5 +1,8 @@
 # Sensor Node API
 
+** note: Given the scope of this take-home assessment, I focused on delivering a solid foundation that meets the requirements. If this were a production setting, I would further enhance it by adding better error handling and exception management, more thorough documentation, additional unit tests, and database versioning to ensure maintainability and scalability.
+
+
 ## API Documentation v1.0
 ## Quick Links
 - [Deployment](#deployment)
@@ -9,6 +12,7 @@
 - [Sensors Endpoints](#sensors-endpoints)
 - [Health Check Endpoint](#health-check-endpoint)
 - [Response Codes](#response-codes)
+- [Future Improvements](#future-improvements)
 
 ### Deployment
 
@@ -308,3 +312,8 @@ Access the API at:
 - **400:** Bad Request
 - **404:** Not Found
 - **500:** Server Error
+
+
+### Future Improvements
+- database versioning (using alembic)
+- end-to-end testing (using postman)
