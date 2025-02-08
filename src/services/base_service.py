@@ -24,9 +24,22 @@ class BaseService:
     def __init__(self, model):
         self.model = model
 
-    def get_all(self) -> List:
+
+    def get_all(self, query_params: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
         with session_scope() as session:
-            items = session.query(self.model).all()
+            query = session.query(self.model)
+
+            if query_params:
+                try:
+                    # Apply filters if query parameters exist
+                    for key, value in query_params.items():
+                        if hasattr(self.model, key):
+                            query = query.filter(
+                                getattr(self.model, key) == value)
+                except Exception as e:
+                    raise ValueError(f"Invalid query parameters: {str(e)}")
+
+            items = query.all()
             return [item.to_dict() for item in items] if items else []
 
     def get_by_identifier(self, identifier: str):
