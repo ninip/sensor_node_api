@@ -45,5 +45,9 @@ def connect_sensor(node_identifier, sensor_identifier):
     if not sensor:
         return jsonify({'error': 'Sensor not found'}), 404
 
-    sensor = sensor_service.connect_to_node(sensor.id, node.id)
-    return jsonify(sensor.to_dict()), 200
+    # Access id directly from dictionaries
+    updated_sensor = sensor_service.connect_to_node(sensor['id'], node['id'])
+    if not updated_sensor:
+        return jsonify({'error': 'Failed to connect sensor to node'}), 500
+
+    return jsonify(updated_sensor), 200
