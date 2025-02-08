@@ -71,6 +71,7 @@ Access the API at:
 #### 1. Get All Nodes
 - **Endpoint:** `/api/nodes`
 - **HTTP Method:** GET
+- **Path Parameters:** `firmware_version` (optional) 
 - **Response Example:**
   ```json
   [
@@ -162,6 +163,7 @@ Access the API at:
 #### 1. Get All Sensors
 - **Endpoint:** `/api/sensors`
 - **HTTP Method:** GET
+- **Path Parameters:** `manufacturer` (optional), `model` (optional), `modality` (optional)
 - **Response Example:**
   ```json
   [
