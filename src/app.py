@@ -1,4 +1,3 @@
-from src.config import Config
 from src.database import db, init_db
 
 from flask import Flask
