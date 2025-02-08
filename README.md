@@ -3,6 +3,12 @@
 ** note: Given the scope of this take-home assessment, I focused on delivering a solid foundation that meets the requirements. If this were a production setting, I would further enhance it by adding better error handling and exception management, more thorough documentation, additional unit tests, and database versioning to ensure maintainability and scalability.
 
 
+### Future Improvements (if this were production)
+- setting up postgres database with indexing
+- database versioning (using alembic)
+- CI/CD with github actions to allow multiple environments hosted
+- end-to-end testing (using postman)
+
 ## API Documentation v1.0
 ## Quick Links
 - [Deployment](#deployment)
@@ -313,7 +319,3 @@ Access the API at:
 - **404:** Not Found
 - **500:** Server Error
 
-
-### Future Improvements
-- database versioning (using alembic)
-- end-to-end testing (using postman)
