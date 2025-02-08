@@ -158,6 +158,36 @@ Access the API at:
 - **Response:** 204 No Content
 - **Description:** Deletes a node and its associated sensors
 
+#### 6. Connect Sensor to Node
+- **Endpoint:** `/api/nodes/<node_identifier>/sensors/<sensor_identifier>`
+- **HTTP Method:** POST
+- **Path Parameters:** 
+  - `node_identifier` (required, ID or serial number)
+  - `sensor_identifier` (required, ID or serial number)
+- **Response Example:**
+  ```json
+  {
+    "id": 1,
+    "serial_number": "SENSOR1",
+    "manufacturer": "Test Mfg",
+    "model": "MODEL-A",
+    "modality": "Temperature",
+    "node_id": 2
+  }
+  ```
+- **Description:** Connects an existing sensor to a node
+- **Error Responses:**
+  ```json
+  {
+    "error": "Node not found"
+  }
+  ```
+  ```json
+  {
+    "error": "Sensor not found"
+  }
+  ```
+  
 ### Sensors Endpoints
 
 #### 1. Get All Sensors
