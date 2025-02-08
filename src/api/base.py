@@ -9,9 +9,17 @@ class BaseAPI:
         self.name = name
 
     def get_all(self):
-        """Get all items of this type."""
-        items = self.service.get_all()
-        return jsonify(items), 200
+        """Get all items of this type with optional query params."""
+        try:
+            # Convert request args to dict, removing None values
+            query_params = {
+                key: value for key, value in request.args.items()
+                if value is not None
+            }
+            items = self.service.get_all(query_params=query_params)
+            return jsonify(items), 200
+        except ValueError as e:
+            return jsonify({'error': str(e)}), 400
 
     def get_one(self, identifier: str):
         item_dict = self.service.get_by_identifier(identifier)
