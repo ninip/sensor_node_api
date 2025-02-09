@@ -55,7 +55,6 @@ pip install -r requirements.txt
 ```bash
 export FLASK_APP=src.app:application
 export FLASK_ENV=development
-export PYTHONPATH=/path/to/project
 ```
 
 4. Run the application:
