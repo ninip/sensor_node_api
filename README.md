@@ -6,6 +6,7 @@
 ### Future Improvements (if this were production)
 - setting up postgres database with indexing
 - database versioning (using alembic)
+- docker container to run using WSGI
 - CI/CD with github actions to allow multiple environments hosted
 - end-to-end testing (using postman)
 
